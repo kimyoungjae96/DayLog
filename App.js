@@ -11,13 +11,16 @@ import type {Node} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import RootStack from './src/screens/RootStack';
 import {LogContextProvider} from './src/contexts/LogContext';
+import {SearchContextProvider} from './src/contexts/SearchContext';
 
 const App: () => Node = () => {
   return (
     <NavigationContainer>
-      <LogContextProvider>
-        <RootStack />
-      </LogContextProvider>
+      <SearchContextProvider>
+        <LogContextProvider>
+          <RootStack />
+        </LogContextProvider>
+      </SearchContextProvider>
     </NavigationContainer>
   );
 };
